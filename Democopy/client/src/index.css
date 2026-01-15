@@ -1,0 +1,42 @@
+@import "./themes.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 20px;
+}
+
+/* Gauge Needle Animation */
+.gauge-needle {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: bottom center;
+}
+
+/* Table Styles - Updated for Visibility and Size */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem; /* Base size */
+}
+.user-table th, .user-table td {
+  border: 1px solid #d1d5db; /* Darker border for light mode */
+  padding: 16px; /* More padding */
+  text-align: left;
+}
+.dark .user-table th, .dark .user-table td {
+  border: 1px solid #374151;
+}

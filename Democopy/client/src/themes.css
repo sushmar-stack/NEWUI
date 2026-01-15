@@ -1,0 +1,211 @@
+/*
+  Import this file into your main CSS entry point (e.g., index.css or App.css)
+  like this: @import "./themes.css";
+*/
+
+@layer base {
+  /* Light Theme (Default) */
+  :root, :root.light {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f9fafb; /* gray-50 */
+    --color-text-primary: #1f2937; /* gray-800 */
+    --color-text-secondary: #000205; /* gray-500 */
+    --color-border-primary: #e5e7eb; /* gray-200 */
+    --color-border-secondary: #3c3d3e; /* gray-300 */
+    --color-button-bg: #f3f4f6; /* gray-100 */
+    --color-button-bg-hover: #e5e7eb; /* gray-200 */
+    --color-accent-primary: #3b82f6; /* blue-500 */
+    --color-accent-secondary: #10b981; /* emerald-500 */
+    --color-success: #22c55e; /* green-500 */
+    --color-warning: #f59e0b; /* amber-500 */
+    --color-error: #ef4444; /* red-500 */
+  }
+
+  /* Dark Theme */
+  :root.dark {
+    --color-bg-primary: #111827; /* gray-900 */
+    --color-bg-secondary: #1f2937; /* gray-800 */
+    --color-text-primary: #f9fafb; /* gray-50 */
+    --color-text-secondary: #9ca3af; /* gray-400 */
+    --color-border-primary: #374151; /* gray-700 */
+    --color-border-secondary: #4b5563; /* gray-600 */
+    --color-button-bg: #374151; /* gray-700 */
+    --color-button-bg-hover: #4b5563; /* gray-600 */
+    --color-accent-primary: #60a5fa; /* blue-400 */
+    --color-accent-secondary: #34d399; /* emerald-400 */
+    --color-success: #4ade80; /* green-400 */
+    --color-warning: #fbbf24; /* amber-400 */
+    --color-error: #f87171; /* red-400 */
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-primary);
+    color: var(--color-text-primary);
+    font-size: clamp(1.5rem, 6vw, 2rem); /* Increased font size */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Animation keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes toggleExpand {
+    from { max-height: 0; opacity: 0; }
+    to { max-height: 500px; opacity: 1; }
+  }
+
+  @keyframes toggleCollapse {
+    from { max-height: 500px; opacity: 1; }
+    to { max-height: 0; opacity: 0; }
+  }
+
+  @keyframes hoverLift {
+    from { transform: translateY(0); }
+    to { transform: translateY(-4px); }
+  }
+
+  /* Utility classes for animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 2s infinite;
+  }
+
+  .animate-toggle-expand {
+    animation: toggleExpand 0.3s ease-out;
+  }
+
+  .animate-toggle-collapse {
+    animation: toggleCollapse 0.3s ease-out;
+  }
+
+  .animate-hover-lift {
+    transition: transform 0.2s ease;
+  }
+
+  .animate-hover-lift:hover {
+    animation: hoverLift 0.2s ease;
+  }
+}
+
+/* themes.css - Enhanced utilities */
+@layer utilities {
+    .theme-bg-secondary {
+        background-color: var(--color-bg-secondary);
+    }
+    .theme-text-primary {
+        color: var(--color-text-primary);
+    }
+    .theme-text-secondary {
+        color: var(--color-text-secondary);
+    }
+    .theme-border-primary {
+        border-color: var(--color-border-primary);
+    }
+    .theme-accent-primary {
+        color: var(--color-accent-primary);
+    }
+    .theme-success {
+        color: var(--color-success);
+    }
+    .theme-warning {
+        color: var(--color-warning);
+    }
+    .theme-error {
+        color: var(--color-error);
+    }
+
+    /* Responsive text utilities */
+    .text-responsive-sm {
+        font-size: clamp(0.875rem, 2.5vw, 1rem);
+    }
+    .text-responsive-base {
+        font-size: clamp(1rem, 3vw, 1.125rem);
+    }
+    .text-responsive-lg {
+        font-size: clamp(1.125rem, 4vw, 1.25rem);
+    }
+    .text-responsive-xl {
+        font-size: clamp(1.25rem, 5vw, 1.5rem);
+    }
+    .text-responsive-2xl {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    .text-responsive-3xl {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    /* Focus styles for accessibility */
+    .focus-ring {
+        @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+    }
+
+    /* Skeleton loader */
+    .skeleton {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    /* Dark mode skeleton */
+    .dark .skeleton {
+        background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+        background-size: 200% 100%;
+    }
+
+    /* Specific skeleton classes for components */
+    .skeleton-card {
+        @apply skeleton rounded-lg h-32;
+    }
+
+    .skeleton-text {
+        @apply skeleton rounded h-4 mb-2;
+    }
+
+    .skeleton-text:last-child {
+        @apply mb-0;
+    }
+
+    .skeleton-avatar {
+        @apply skeleton rounded-full h-12 w-12;
+    }
+
+    .skeleton-button {
+        @apply skeleton rounded-md h-10 w-24;
+    }
+}
