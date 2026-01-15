@@ -45,7 +45,7 @@ npm install
 Now you need to install the libraries for the frontend (Client). First, move to the client folder:
 
 ```bash
-cd ../client
+cd client
 ```
 
 Then run the install command:
@@ -125,7 +125,8 @@ VITE_API_BASE=http://localhost:4000
 VITE_ADMIN_PASSWORD=password@24
 ```
 
-🏃‍♂️ How to Run
+## 🏃‍♂️ How to Run
+
 You need to run the Server and Client at the same time. Open two separate terminals in VS Code.
 
 Terminal 1: Start the Backend
@@ -157,21 +158,23 @@ You should see: Local: http://localhost:5173
 ---
 
 ## 🛠️ Usage Notes
-Login: Open http://localhost:5173 in your browser. Log in with admin and the password you set in your .env file.
 
-Excel vs. Google Sheets: The logic currently pulls data exclusively from the Google Sheets connected in your .env.
+1. Login: Open http://localhost:5173 in your browser. Log in with admin and the password you set in your .env file.
 
-Search: The global search bar filters customers based on data in your active Google Sheets.
+2. Excel vs. Google Sheets: The logic currently pulls data exclusively from the Google Sheets connected in your .env.
 
-Images: Place client logo images (PNG) in client/public/. Name them exactly as the client appears in the sheet (e.g., Novo Nordisk.png).
+3. Search: The global search bar filters customers based on data in your active Google Sheets.
+
+4. Images: Place client logo images (PNG) in client/public/. Name them exactly as the client appears in the sheet (e.g., Novo Nordisk.png).
 
 ---
 
 ## 🛑 Troubleshooting
-"Credentials file not found": Ensure server/credentials.json exists and is named correctly.
 
-"Sheet not found": Ensure you shared the Google Sheet with the Service Account email address.
+1. "Credentials file not found": Ensure server/credentials.json exists and is named correctly.
 
-"Connection Refused": Ensure the server is running on port 4000 before starting the client.
+2. "Sheet not found": Ensure you shared the Google Sheet with the Service Account email address.
 
-"Module not found": If you see errors about missing modules, make sure you ran npm install in both folders.
+3. "Connection Refused": Ensure the server is running on port 4000 before starting the client.
+
+4. "Module not found": If you see errors about missing modules, make sure you ran npm install in both folders.
