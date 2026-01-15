@@ -1,8 +1,6 @@
-# Sycamore Menu-Card Dashboard (Fullstack)
 
-Markdown
 
-# Sycamore Menu-Card Dashboard
+# Sycamore Customer Dashboard
 
 A full-stack customer dashboard application that acts as a **"Menu-Card"** for client data. 
 It features a **React** frontend for visualization and a **Node.js/Express** backend that syncs data in real-time with **Google Sheets**.
