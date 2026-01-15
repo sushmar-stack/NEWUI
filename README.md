@@ -1,4 +1,4 @@
-# Sycamore Menu-Card Dashboard
+# Sycamore Customer Dashboard (SCD)
 
 A full-stack customer dashboard application that acts as a **"Menu-Card"** for client data. 
 It features a **React** frontend for visualization and a **Node.js/Express** backend that syncs data in real-time with **Google Sheets**.
@@ -54,45 +54,50 @@ Then run the install command:
 npm install
 ```
 
-🔑 Google Cloud Configuration (Critical)
+### 🔑 Google Cloud Configuration (Critical)
+
 Since this app reads/writes to Google Sheets, you must create your own credentials. These are secret keys and are not included in this repository.
 
-Step A: Create a Service Account
-Go to the Google Cloud Console.
+#### Step A: Create a Service Account
 
-Create a New Project (e.g., "Sycamore Dashboard").
+1. Go to the Google Cloud Console.
 
-Go to APIs & Services > Library and enable:
+2. Create a New Project (e.g., "Sycamore Dashboard").
 
-Google Sheets API
+3. Go to APIs & Services > Library and enable:
 
-Google Drive API
+- Google Sheets API
 
-Go to APIs & Services > Credentials and click Create Credentials > Service Account.
+- Google Drive API
 
-Name it (e.g., dashboard-backend) and click Done.
+4. Go to APIs & Services > Credentials and click Create Credentials > Service Account.
 
-Step B: Generate the Key (credentials.json)
-Click on the newly created Service Account email (e.g., dashboard-backend@...).
+- Name it (e.g., dashboard-backend) and click Done.
 
-Go to the Keys tab > Add Key > Create new key.
+#### Step B: Generate the Key (credentials.json)
 
-Select JSON and create. A file will download to your computer.
+1. Click on the newly created Service Account email (e.g., dashboard-backend@...).
 
-Rename this file to credentials.json.
+2. Go to the Keys tab > Add Key > Create new key.
 
-Move this file into the server/ folder of this project.
+3. Select JSON and create. A file will download to your computer.
 
-Step C: Share Your Sheets
-Open the Google Sheet you want to use as your database.
+4. Rename this file to credentials.json.
 
-Click the Share button.
+5. Move this file into the server/ folder of this project.
 
-Paste the Service Account Email (found in your Google Cloud Console) and give it Editor access.
+#### Step C: Share Your Sheets
 
-Copy the Sheet ID from the URL (the long string between /d/ and /edit).
+1. Open the Google Sheet you want to use as your database.
 
-⚙️ Environment Variables
+2. Click the Share button.
+
+3. Paste the Service Account Email (found in your Google Cloud Console) and give it Editor access.
+
+4. Copy the Sheet ID from the URL (the long string between /d/ and /edit).
+
+### ⚙️ Environment Variables
+
 You need to tell the code where your servers are and which Sheets to load.
 
 1. Server Configuration
@@ -149,7 +154,9 @@ npm run dev
 ```
 You should see: Local: http://localhost:5173
 
-🛠️ Usage Notes
+---
+
+## 🛠️ Usage Notes
 Login: Open http://localhost:5173 in your browser. Log in with admin and the password you set in your .env file.
 
 Excel vs. Google Sheets: The logic currently pulls data exclusively from the Google Sheets connected in your .env.
@@ -158,7 +165,9 @@ Search: The global search bar filters customers based on data in your active Goo
 
 Images: Place client logo images (PNG) in client/public/. Name them exactly as the client appears in the sheet (e.g., Novo Nordisk.png).
 
-🛑 Troubleshooting
+---
+
+## 🛑 Troubleshooting
 "Credentials file not found": Ensure server/credentials.json exists and is named correctly.
 
 "Sheet not found": Ensure you shared the Google Sheet with the Service Account email address.
