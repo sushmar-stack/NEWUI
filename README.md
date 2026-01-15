@@ -1,6 +1,6 @@
+Markdown
 
-
-# Sycamore Customer Dashboard
+# Sycamore Menu-Card Dashboard
 
 A full-stack customer dashboard application that acts as a **"Menu-Card"** for client data. 
 It features a **React** frontend for visualization and a **Node.js/Express** backend that syncs data in real-time with **Google Sheets**.
@@ -19,25 +19,39 @@ Before running this project, ensure you have the following installed on your com
 
 ## 🚀 Setup Guide (From Scratch)
 
+Since this repository was uploaded without the heavy dependency folders (`node_modules`) to keep the project lightweight, **you must reinstall them** before the app will work.
+
 ### 1. Clone the Repository
-Open your terminal (Command Prompt or Terminal in VS Code) and run:
+Open your terminal (Command Prompt or Terminal in VS Code) and run this command to download the code:
+
 ```bash
 git clone <YOUR_REPO_URL>
-cd sycamore-menu-dashboard
-2. Install Dependencies
-You need to install libraries for both the Server (Backend) and Client (Frontend).
+Then, move into the project folder:
 
-Server:
+Bash
+
+cd sycamore-menu-dashboard
+2. Install Server Dependencies
+You need to install the libraries for the backend (Server). Run this command:
 
 Bash
 
 cd server
-npm install
-Client: (Open a new terminal or cd ../client)
+Then run the install command:
 
 Bash
 
-cd client
+npm install
+3. Install Client Dependencies
+Now you need to install the libraries for the frontend (Client). First, move to the client folder:
+
+Bash
+
+cd ../client
+Then run the install command:
+
+Bash
+
 npm install
 🔑 Google Cloud Configuration (Critical)
 Since this app reads/writes to Google Sheets, you must create your own credentials. These are secret keys and are not included in this repository.
@@ -81,7 +95,7 @@ Copy the Sheet ID from the URL (the long string between /d/ and /edit).
 You need to tell the code where your servers are and which Sheets to load.
 
 1. Server Configuration
-Create a file named .env inside the server/ folder:
+Create a file named .env inside the server/ folder and paste this content:
 
 Code snippet
 
@@ -96,23 +110,39 @@ WEEKLY_SOURCES_2025=id_for_week_1,id_for_week_2,...
 # Google Drive Folder ID (for uploading Excel conversions/images)
 UPLOAD_FOLDER_ID=your_drive_folder_id_here
 2. Client Configuration
-Create a file named .env inside the client/ folder:
+Create a file named .env inside the client/ folder and paste this content:
 
+Code snippet
 
+VITE_API_BASE=http://localhost:4000
+# Secure password for the login screen
+VITE_ADMIN_PASSWORD=password@24
 🏃‍♂️ How to Run
 You need to run the Server and Client at the same time. Open two separate terminals in VS Code.
 
 Terminal 1: Start the Backend
+Navigate to the server folder:
+
 Bash
 
 cd server
+Start the server:
+
+Bash
+
 npm run dev
 You should see: 🚀 Server listening on http://localhost:4000
 
 Terminal 2: Start the Frontend
+Navigate to the client folder:
+
 Bash
 
 cd client
+Start the client:
+
+Bash
+
 npm run dev
 You should see: Local: http://localhost:5173
 
@@ -132,4 +162,4 @@ Images: Place client logo images (PNG) in client/public/. Name them exactly as t
 
 "Connection Refused": Ensure the server is running on port 4000 before starting the client.
 
-"Module not found": If you see errors about missing modules, make sure you ran npm install in both folders (Step 2).
+"Module not found": If you see errors about missing modules, make sure you ran npm install in both folders.
